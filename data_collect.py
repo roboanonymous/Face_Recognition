@@ -1,13 +1,3 @@
-# Write a Python Script that captures images from your webcam video stream
-# Extracts all Faces from the image frame (using haarcascades)
-# Stores the Face information into numpy arrays
-
-# 1. Read and show video stream, capture images
-# 2. Detect Faces and show bounding box (haarcascade)
-# 3. Flatten the largest face image(gray scale) and save in a numpy array
-# 4. Repeat the above for multiple people to generate training data
-
-
 import cv2
 import numpy as np
 
@@ -16,10 +6,10 @@ cap = cv2.VideoCapture(0)
 
 # Face Detection
 face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_alt.xml")
-
+ 
 skip = 0
 face_data = []
-dataset_path = 'C:\Users\SAMYAK\Desktop\Face Recognition'
+dataset_path = 'C:/Users/SAMYAK/Desktop/Face Recognition/'
 file_name = input("Enter the name of the person : ")
 while True:
 	ret,frame = cap.read()
@@ -31,6 +21,7 @@ while True:
 	
 
 	faces = face_cascade.detectMultiScale(frame,1.3,5)
+	print(faces)
 	if len(faces)==0:
 		continue
 		
